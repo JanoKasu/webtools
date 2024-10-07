@@ -1,21 +1,19 @@
 import '../styles/App.css';
-import Accessory from '../components/Accessory.js';
-import Box from '@mui/material/Box';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Timer from './Timer';
+import Calculator from './Calculator';
+import Conversion from './UnitConverter';
 
-const timer = require('../images/timer.png');
-const calculator = require('../images/calculator.png');
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Box display={'flex'}>
-          <Accessory title={'Timer'} img={timer} link={'www.google.com'} />
-          <Accessory title={'Calculator'} img={calculator} link={'www.google.com'} />
-        </Box>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/timer' element={<Timer />} />
+        <Route path='/calculator' element={<Calculator />} />
+        <Route path='/converter' element={<Conversion />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
