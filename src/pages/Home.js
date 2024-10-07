@@ -1,3 +1,4 @@
+import '../styles/Home.css'
 import Accessory from '../components/Accessory.js';
 import Box from '@mui/material/Box';
 

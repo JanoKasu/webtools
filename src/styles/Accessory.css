@@ -1,7 +1,17 @@
 Button {
-	background-color: '#FEFAE0';
-	margin: '5vw';
-	border-radius: '20px';
-	padding: '20px';
-	color: '#D4A373';
+	background-color: #FEFAE0;
+	margin: 5vw;
+	border-radius: 20px;
+	padding: 20px;
+	color: #D4A373;
+	background-color: #E9EDC9;
+	border-radius: 25px;
+	display: flex;
+	flex-direction: column;
+	margin: 5vh 5vw;
+}
+
+img {
+	height: 35vh;
+	padding: 3vh 2vw;
 }
