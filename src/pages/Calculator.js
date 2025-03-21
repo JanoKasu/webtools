@@ -12,7 +12,7 @@ export default function Calculator() {
       alignItems: 'center',
       textAlign: 'center'
     }}>
-      <label>
+      <label id="answer">
         Answer
       </label>
       <Box sx={{
