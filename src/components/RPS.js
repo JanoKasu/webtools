@@ -11,10 +11,13 @@ export default function RPS(props) {
 				borderColor: 'black',
 				borderRadius: '25px',
 				padding: '20px',
-				backgroundColor: '#E9EDC9',
-				margin: '5vh 5vw'
-			}}>
-			<img style={{ height: '35vh', padding: '3vh 2vw' }} draggable={false} src={props.img} alt='Error Loading' />
+				backgroundColor: props.backgroundColor,
+				margin: '5vh 5vw',
+				height: '40vh',
+				width: '20vw'
+			}}
+			onClick={props.onClick}>
+			<img style={{ height: '25vh', padding: '3vh 2vw' }} draggable={false} src={props.img} alt='Error Loading' />
 			<Box sx={{
 				fontSize: '30px',
 				color: 'black'
