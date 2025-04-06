@@ -8,7 +8,6 @@ export default function RPS(props) {
 			sx={{
 				display: 'flex',
 				flexDirection: 'column',
-				borderColor: 'black',
 				borderRadius: '25px',
 				padding: '20px',
 				backgroundColor: props.backgroundColor,
