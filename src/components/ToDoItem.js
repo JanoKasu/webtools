@@ -12,7 +12,7 @@ export default function ToDoItem(props) {
 			sx={{
 				display: 'flex',
 				flexDirection: 'row',
-				justifyContent: 'center',
+				justifyContent: 'space-between',
 				textAlign: 'center',
 				borderRadius: '25px',
 				padding: '20px',
@@ -26,7 +26,7 @@ export default function ToDoItem(props) {
 				onClick={handleChange} />
 			<Box>{props.task.text}</Box>
 			<Button
-				sx={{ alignSelf: 'left' }}
+				sx={{ color: 'black' }}
 				onClick={() => props.deleteTask(props.task.id)}
 			>
 				X

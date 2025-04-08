@@ -1,13 +1,17 @@
 import { Box, Button, TextField } from "@mui/material";
 import ToDoItem from "../components/ToDoItem";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ToDo() {
 	const [text, setText] = useState('');
-	const [tasks, setTasks] = useState([
-		{ id: 1, text: 'Doctor Appointment', completed: true },
-		{ id: 2, text: 'School Meeting', completed: false }
-	]);
+	const [tasks, setTasks] = useState(() => {
+		const storedTodos = localStorage.getItem('todos');
+		return storedTodos ? JSON.parse(storedTodos) : [];
+	});
+
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(tasks));
+	}, [tasks]);
 
 	function addTask(text) {
 		const newTask = {
@@ -39,10 +43,23 @@ export default function ToDo() {
 			minHeight: '100vh',
 			display: 'flex',
 			flexDirection: 'column',
-			justifyContent: 'center',
 			alignItems: 'center',
 			textAlign: 'center'
 		}}>
+			<Box
+				sx={{
+					display: 'flex',
+					flexDirection: 'row',
+					width: '80vw',
+					justifyContent: 'space-between',
+					margin: '5vh 5vw'
+				}}>
+				<TextField
+					value={text}
+					onChange={e => setText(e.target.value)}
+				/>
+				<Button onClick={() => addTask(text)}>Add</Button>
+			</Box>
 			{tasks.map(task => (
 				<ToDoItem
 					key={task.id}
@@ -51,11 +68,6 @@ export default function ToDo() {
 					toggleCompleted={toggleCompleted}
 				/>
 			))}
-			<TextField
-				value={text}
-				onChange={e => setText(e.target.value)}
-			/>
-			<Button onClick={() => addTask(text)}>Add</Button>
 		</Box>
 	);
 }
